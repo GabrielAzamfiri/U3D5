@@ -417,12 +417,13 @@ halfTree(6);
 const tree = (n) => {
   let stars = "";
   for (let i = 1; i <= n; i++) {
-    stars += "\n";
+    stars += "\n"; // vai a capo
     for (let x = 0; x < n - i; x++) {
-      stars += " ";
+      stars += " "; // creo spazi vuoti prima del asterisco
     }
     for (let y = 1; y < i + i; y++) {
-      stars += "*";
+      // i+i cosi ad ogni riga sotto aggiungera il doppio degli asterischi -1
+      stars += "*"; //aggiungo asterisco
     }
   }
   console.log(stars);
@@ -432,20 +433,22 @@ tree(7);
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 const isItPrime = (n) => {
-  let div = 1;
+  let divisore = 1;
   let conteggio = 0;
 
-  while (conteggio <= 1 && div <= n / 2) {
-    if (n % div === 0) {
+  while (conteggio <= 1 && divisore <= n / 2) {
+    // divisore si ferma alla metà di n stesso perche dividendo un numero per un valore maggiore della sua metà si ottiene un numero decimale
+    if (n % divisore === 0) {
+      // se il resto di tra numero e il divisore è = 0 allora aumenta il conteggio e aumenta il divisore
       conteggio++;
-    }
-    div++;
+    } // se non è uguale allora aumenta solo il divisore
+    divisore++;
   }
-
+  // se il numero puo essere diviso solo per divisore =1  (oltre che per se stesso)
   if (conteggio === 1) {
-    console.log("Il numero è primo ");
+    console.log("Il numero è primo "); // allora è un numero primo
   } else {
-    console.log("Il numero non è primo ");
+    console.log("Il numero non è primo "); // altrimenti può essere diviso anche per altri numeri e ciò vuol dire che non è un numero primo
   }
 };
-isItPrime(3);
+isItPrime(11);
