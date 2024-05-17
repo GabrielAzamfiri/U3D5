@@ -419,7 +419,7 @@ const tree = (n) => {
   for (let i = 1; i <= n; i++) {
     stars += "\n";
     for (let x = 0; x < n - i; x++) {
-      stars = " ";
+      stars += " ";
     }
     for (let y = 1; y < i + i; y++) {
       stars += "*";
